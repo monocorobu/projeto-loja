@@ -1,6 +1,9 @@
+import { Space, Typography } from "antd";
 import styled from "styled-components";
 
 import colors from "../../../shared/colors/colorspalettes";
+
+const { Title } = Typography;
 
 export const BackgroundDiv = styled.div`
   position: relative;
@@ -14,6 +17,13 @@ export const ContainerScreenLogin = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
+`;
+
+export const TitleLogin = styled(Title)`
+  && {
+    font-size: 32pt;
+    color: ${colors.accent100};
+  }
 `;
 
 export const ContainerLogin = styled.div`

@@ -1,14 +1,16 @@
+import { Space, Typography } from "antd";
 import styled from "styled-components";
 
 import colors from "../../colors/colorspalettes";
-export const BoxInput = styled.div``;
 
-export const TitleInput = styled.h3`
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
+const { Text, Link } = Typography;
+
+export const BoxInput = styled.div`
+  width: 100%;
+`;
+
+export const TitleInput = styled(Text)`
   color: ${colors.text100};
-  line-height: 21px;
+
   margin: 8px;
 `;
