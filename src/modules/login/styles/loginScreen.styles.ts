@@ -37,11 +37,6 @@ export const ContainerLogin = styled.div`
   max-width: 646px;
 `;
 
-export const LogoImage = styled.img`
-  width: 50%;
-  object-fit: cover;
-`;
-
 export const ContainerLimited = styled.div`
   display: flex;
   flex-direction: column;

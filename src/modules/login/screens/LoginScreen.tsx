@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 
 import Button from "../../../shared/buttons/button/button";
+import SVGLogo from "../../../shared/icons/SVGLogo";
 import InputDefault from "../../../shared/inputs/inputDefault/inputDefault";
 import {
   BackgroundDiv,
   ContainerLimited,
   ContainerLogin,
   ContainerScreenLogin,
-  LogoImage,
   TitleLogin,
 } from "../styles/loginScreen.styles";
 
@@ -24,7 +24,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    const returnObeject = await axios({
+    await axios({
       method: "post",
       url: "http://localhost:8080/auth",
       data: {
@@ -45,7 +45,7 @@ const LoginScreen = () => {
     <ContainerScreenLogin>
       <ContainerLogin>
         <ContainerLimited>
-          <LogoImage src="./logo.png" />
+          <SVGLogo width="80%" object-fit=" cover" />
           <TitleLogin level={2}>LOGIN</TitleLogin>
           <InputDefault
             title="Email "

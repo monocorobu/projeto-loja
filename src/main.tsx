@@ -1,7 +1,24 @@
 import "./main.css";
 
+import type { Router as RemixRouter } from "@remix-run/router";
+import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouteObject, RouterProvider } from "react-router-dom";
 
-import App from "./App";
+import { loginRoutes } from "./modules/login/routes";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(<App />);
+const mainRoutes: RouteObject[] = [
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+    errorElement: <div>Deu Erro</div>,
+  },
+];
+
+const router: RemixRouter = createBrowserRouter([...loginRoutes, ...mainRoutes]);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+);
