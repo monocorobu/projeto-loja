@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../../../shared/componnents/buttons/button/button";
 import SVGLogo from "../../../shared/componnents/icons/SVGLogo";
 import InputDefault from "../../../shared/componnents/inputs/inputDefault/inputDefault";
+import { useGlobalContext } from "../../../shared/hooks/useGlobalContext";
 import { useRequest } from "../../../shared/hooks/useRequests";
 import {
   BackgroundDiv,
@@ -13,6 +14,7 @@ import {
 } from "../styles/loginScreen.styles";
 
 const LoginScreen = () => {
+  const { accessToken, setAccessToken } = useGlobalContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { postRequest, loading } = useRequest();
@@ -25,6 +27,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
+    setAccessToken("novo token");
     postRequest("http://localhost:8080/auth", {
       data: {
         email: email,
