@@ -1,9 +1,9 @@
-import axios from "axios";
 import { useState } from "react";
 
-import Button from "../../../shared/buttons/button/button";
-import SVGLogo from "../../../shared/icons/SVGLogo";
-import InputDefault from "../../../shared/inputs/inputDefault/inputDefault";
+import Button from "../../../shared/componnents/buttons/button/button";
+import SVGLogo from "../../../shared/componnents/icons/SVGLogo";
+import InputDefault from "../../../shared/componnents/inputs/inputDefault/inputDefault";
+import { useRequest } from "../../../shared/hooks/useRequests";
 import {
   BackgroundDiv,
   ContainerLimited,
@@ -15,6 +15,7 @@ import {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { postRequest, loading } = useRequest();
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -24,21 +25,12 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    await axios({
-      method: "post",
-      url: "http://localhost:8080/auth",
+    postRequest("http://localhost:8080/auth", {
       data: {
         email: email,
         password: password,
       },
-    })
-      .then((result) => {
-        alert(`fez login token: ${result.data.accessToken}`);
-        return result.data;
-      })
-      .catch(() => {
-        alert("Usuario ou senha invalido");
-      });
+    });
   };
 
   return (
@@ -60,7 +52,12 @@ const LoginScreen = () => {
             onChange={handlePassword}
             value={password}
           />
-          <Button type={"primary"} margin="64px 0px 16px 0px" onClick={handleLogin}>
+          <Button
+            loading={loading}
+            type={"primary"}
+            margin="64px 0px 16px 0px"
+            onClick={handleLogin}
+          >
             LOGIN
           </Button>
         </ContainerLimited>

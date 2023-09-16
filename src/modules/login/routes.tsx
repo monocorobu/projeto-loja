@@ -1,5 +1,4 @@
-import type { Router as RemixRouter } from "@remix-run/router";
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 
 import LoginScreen from "./screens/LoginScreen";
 

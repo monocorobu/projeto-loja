@@ -1,7 +1,7 @@
 import { Typography } from "antd";
 import styled from "styled-components";
 
-import colors from "../../../shared/colors/colorspalettes";
+import colors from "../../../shared/componnents/colors/colorspalettes";
 
 const { Title } = Typography;
 
